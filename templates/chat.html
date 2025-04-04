@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatStyle.css') }}">
+    <title>똑똑 챗봇</title>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-group">
+        <div class="chat-header">
+            <span>똑똑 AI 챗봇</span>
+            <button class="close-btn" type="button" onclick="location.href='/'" aria-label="Close">X</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" id="user-input" class="input-box" placeholder="메시지 입력" onkeydown="checkSend(event)">
+            <button class="send-button" onclick="sendMessage()">전송</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let selectedKeyword = "";
+
+    function appendMessage(message, sender, typingEffect = false, callback) {
+        const chatBody = document.getElementById('chat-body');
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('chat-message', sender === 'user' ? 'message-user' : 'message-bot');
+
+        // 봇인 경우 이름 추가
+        if (sender === 'bot') {
+            const botName = document.createElement('div');
+            botName.classList.add('bot-name');
+            botName.textContent = '똑똑봇';
+            messageContainer.appendChild(botName);
+        }
+
+        const messageBubble = document.createElement('div');
+        messageBubble.classList.add('message-bubble', sender === 'user' ? 'user-bubble' : 'bot-bubble');
+        messageBubble.innerHTML = message.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        messageContainer.appendChild(messageBubble);
+        chatBody.appendChild(messageContainer);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        if (callback) callback();
+    }
+
+    function appendButtons() {
+        const chatBody = document.getElementById('chat-body');
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('chat-buttons');
+
+        // 이사 관련 버튼 추가
+        const buttons = [
+            { text: '1. 부동산 매물 확인 단계', value: '1. 부동산 매물 확인 단계' },
+            { text: '2. 가격 검토 및 협상 단계', value: '2. 가격 검토 및 협상 단계' },
+            { text: '3. 계약 단계', value: '3. 계약 단계' },
+            { text: '4. 세금 및 자금 계획 단계', value: '4. 세금 및 자금 계획 단계' },
+            { text: '5. 소유권 이전 및 등기 단계', value: '5. 소유권 이전 및 등기 단계' },
+            { text: '6. 하자 보수 및 입주 단계', value: '6. 하자 보수 및 입주 단계' },
+            { text: '7. 기타', value: '7. 기타' },
+        ];
+
+        buttons.forEach(button => {
+            const btn = document.createElement('button');
+            btn.classList.add('chat-button');
+            btn.textContent = button.text;
+            btn.onclick = function() {
+                handleButtonClick(button.value);
+            };
+            buttonContainer.appendChild(btn);
+        });
+
+        chatBody.appendChild(buttonContainer);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function handleButtonClick(value) {
+        selectedKeyword = value; // 클릭된 키워드를 저장
+        appendMessage(`선택한 옵션: ${value}`, 'user');
+        
+        fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ keyword: selectedKeyword })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            appendMessage('질문을 작성해주세요.', 'bot');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            appendMessage('죄송합니다. 오류가 발생했습니다.', 'bot');
+        });
+    }
+
+    window.onload = function() {
+        appendMessage('안녕하세요,<br>똑똑입니다.<br>무엇을 도와드릴까요?', 'bot', true, appendButtons);
+    };
+
+    function sendMessage() {
+        const userInput = document.getElementById('user-input');
+        const message = userInput.value;
+
+        if (message.trim() !== '') {
+            appendMessage(message, 'user');
+            userInput.value = '';
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message, keyword: selectedKeyword })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                appendMessage(data.response.replace(/(?:\r\n|\r|\n)/g, '<br>'), 'bot');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                appendMessage('죄송합니다. 오류가 발생했습니다.', 'bot');
+            });
+        }
+    }
+
+    function checkSend(event) {
+        if (event.ctrlKey && event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+</script>
+
+</body>
+</html>

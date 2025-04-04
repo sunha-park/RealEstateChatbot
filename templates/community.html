@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='communityStyle.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>커뮤니티</h1>
+            <nav>
+                <button class="nav-button" onclick="openPostModal()">글쓰기</button>
+            </nav>
+        </header>
+
+        <main>
+            {% for post in posts %}
+            <div class="post">
+                <div class="post-header">
+                    <span class="author">{{ post.author }}</span>
+                    <span class="category">{{ post.category }}</span>
+                    <span class="date">{{ post.date }}</span>
+                </div>
+                <h2 class="title">{{ post.title }}</h2>
+                <p class="content">{{ post.content }}</p>
+                <div class="post-footer">
+                    <span>👍 {{ post.likes }}</span>
+                    <span>💬 {{ post.comments }}</span>
+                    <span class="time">{{ post.time_ago }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+
+        <!-- 게시글 추가 모달 -->
+        <div id="addPostForm" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal('addPostForm')">&times;</span>
+                <h6>새 게시글 작성</h6>
+                <form action="{{ url_for('post') }}" method="POST">
+                    <input type="date" name="date" placeholder="날짜 (예: 24.11)">
+                    <input type="text" name="location" placeholder="장소">
+                    <input type="text" name="title" placeholder="제목" required>
+                    <textarea name="content" placeholder="내용을 입력하세요..." required></textarea>
+                    <button type="submit">게시글 작성</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 하단 네비게이션 바 -->
+        <nav class="bottom-nav">
+            <a href="/memo">
+                <div class="nav-icon"><img src="{{ url_for('static', filename='notes.png') }}" alt="메모장"></div>
+                <span>메모장</span>
+            </a>
+            <a href="/" class="active">
+                <div class="nav-icon"><img src="{{ url_for('static', filename='home.png') }}" alt="홈"></div>
+                <span>홈</span>
+            </a>
+            <a href="/community">
+                <div class="nav-icon"><img src="{{ url_for('static', filename='analysis.png') }}" alt="분석하기"></div>
+                <span>분석하기</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        function openPostModal() {
+            document.getElementById('addPostForm').style.display = 'flex';
+            window.addEventListener('click', closeModalOnClickOutside);
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            window.removeEventListener('click', closeModalOnClickOutside);
+        }
+
+        function closeModalOnClickOutside(event) {
+            const addPostForm = document.getElementById('addPostForm');
+            const addTaskForm = document.getElementById('addTaskForm');
+            const postContent = document.querySelector('#addPostForm .modal-content');
+            const taskContent = document.querySelector('#addTaskForm .modal-content');
+
+            if (event.target === addPostForm && !postContent.contains(event.target)) {
+                addPostForm.style.display = 'none';
+            } else if (event.target === addTaskForm && !taskContent.contains(event.target)) {
+                addTaskForm.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

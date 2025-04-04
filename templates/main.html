@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex 연습</title>
+<style>
+  /* 전체 화면 크기 설정 */
+  body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #0c2d82;
+    width: 100%;  /* 전체 컨테이너의 고정 너비 */
+    height: 100%; /* 고정 높이 */
+  }
+
+  /* 컨테이너 설정 */
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;  /* 전체 컨테이너의 고정 너비 */
+    height: 100%; /* 고정 높이 */
+    background-color: #0c2d82;
+  }
+
+  .content {
+    align-items: center;
+    text-align: center;
+    background-color: #0c2d82;
+    color: white;
+    height: 100%;
+    width: 100%; /* 컨테이너 너비의 80% */
+    flex-direction: column;
+    display: flex;
+    position: relative; /* 버튼을 절대 위치로 배치할 수 있도록 설정 */
+    top: 40%;
+
+  }
+
+  .content img {
+    width: 30%;
+    height: 15%;
+  }
+
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <img src="20241108_153216.png", alt="mainlogo">
+    </div>
+  </div>
+</body>
+</html>

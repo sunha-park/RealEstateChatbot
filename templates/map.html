@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>아파트 매물 지도</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <h2>서울 아파트 매물 지도</h2>
+    <div id="map"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        const map = L.map('map').setView([37.5665, 126.9780], 11);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Sample data for demonstration
+        const locations = {{ locations|tojson }};
+        
+        locations.forEach(function (location) {
+            const marker = L.marker([location.latitude, location.longitude]).addTo(map);
+            marker.bindPopup(
+                `<b>단지명:</b> ${location.단지명}<br>
+                 <b>주소:</b> ${location.도로명}<br>
+                 <b>전용면적:</b> ${location['전용면적(㎡)']}㎡<br>
+                 <b>거래금액:</b> ${location['거래금액(만원)']}만원`
+            );
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

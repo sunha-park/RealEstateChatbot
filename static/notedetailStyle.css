@@ -1,0 +1,186 @@
+/* Reset 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 전체 컨테이너 스타일 */
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 스타일 */
+h3 {
+    text-align: left;
+    color: #0c2d82;
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+
+/* 노트 정보 카드 스타일 */
+.note {
+    background-color: #fffbe0;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* 거리 박스 스타일 */
+.distance-container {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.distance-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.distance-box:hover {
+    transform: translateY(-5px);
+}
+
+.value {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.distance-box img {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.distance-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/* 개별 정보 스타일 */
+.result, .advice {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+/* 날짜 스타일 */
+.note-date {
+    font-size: 1em;
+    font-weight: bold;
+    color: #0c2d82;
+    margin-bottom: 10px;
+}
+
+/* 내용 스타일 */
+.note-content {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 메모 내용 스타일 */
+.note-memo {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.5;
+}
+.note-date strong, .note-content strong, .note-memo strong, 
+.result strong, .advice strong {
+    color: #0c2d82;
+    font-weight: bold;
+}
+
+.result {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.advice {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* 뒤로가기 버튼 스타일 */
+.back-button {
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    background-color: #0c2d82;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.back-button:hover {
+    background-color: #34497d;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.6em;
+    }
+    .note {
+        padding: 15px;
+    }
+    .back-button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+    .distance-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .distance-box {
+        width: auto;
+
+    }
+}

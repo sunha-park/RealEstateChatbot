@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노트 상세 보기</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='notedetailStyle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h3>노트 분석 결과</h3>
+        <div class="note">
+            <div class="note-date"> {{ task_date }}</div>
+            <div class="note-content"> {{ task_content }}</div>
+            <div class="note-memo">{{ memo_content }}</div>
+            
+            <!-- 거리 정보 박스 -->
+            <div class="distance-container">
+                <div class="distance-box">
+                    <div class="value">따릉이 대여소까지의 거리</div>
+                    <img src="{{ url_for('static', filename='bicycle.png') }}" alt="따릉이 아이콘">
+                    <div class="distance-value">{{ bicycle_distance }} m</div>
+                </div>
+                <div class="distance-box">
+                    <div class="value">지하철역까지의 거리</div>
+                    <img src="{{ url_for('static', filename='train.png') }}" alt="지하철 아이콘">
+                    <div class="distance-value">{{ station_distance }} m</div>
+                </div>
+                <div class="distance-box">
+                    <div class="value">버스정류장까지의 거리</div>
+                    <img src="{{ url_for('static', filename='bus.png') }}" alt="버스 아이콘">
+                    <div class="distance-value">{{ bus_distance }} m</div>
+                </div>
+            </div>
+
+            <div class="result"><strong>평가</strong> {{ result }}</div>
+            <div class="advice"><strong>요약</strong> <br>{{ advice }}</div>
+        </div>
+        <a href="/analysis" class="back-button">메모장으로 돌아가기</a>
+    </div>
+</body>
+</html>

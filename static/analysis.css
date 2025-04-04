@@ -1,0 +1,232 @@
+/* Reset 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* 전체 컨테이너 스타일 */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* 제목 스타일 */
+h3 {
+    text-align: left;
+    color: #0c2d82;
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+.note {
+    background-color: #fffbe0;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.note:hover {
+    background-color: #e0f7ff;
+}
+
+/* note-content 내부 버튼 컨테이너 */
+.note-buttons {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* 마우스를 올리면 note-buttons 표시 */
+.note:hover .note-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.note-buttons button,
+.note-buttons .analyze-button {
+    padding: 10px 12px;
+    font-size: 0.9em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.note-buttons button {
+    background-color: #a5aaa3; /* 삭제 버튼 색상 */
+}
+
+.note-buttons .analyze-button {
+    background-color: #0c2d82; /* 분석하기 버튼 색상 */
+    text-decoration: none; /* 링크 기본 스타일 제거 */
+}
+
+/* 버튼에 호버 효과 */
+.note-buttons button:hover {
+    background-color: ##979797;
+}
+
+.note-buttons .analyze-button:hover {
+    background-color: #094080;
+}
+
+/* 날짜 스타일 */
+.note-date {
+    font-size: 1em;
+    font-weight: bold;
+    color: #0c2d82;
+    margin-bottom: 10px;
+}
+
+/* 내용 스타일 */
+.note-task {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 메모 내용 스타일 */
+.note-memo {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 하단 네비게이션 바 스타일 */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 12px 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.bottom-nav a {
+    color: #555;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.bottom-nav a:hover {
+    background-color: #e6f4ff;
+    color: #0c2d82;
+}
+
+.bottom-nav a:active {
+    color: #0c2d82;
+    font-weight: 600;
+    background-color: #e6f4ff;
+}
+
+.nav-icon img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+/* 자동완성 목록 스타일 */
+#suggestions {
+    border: 1px solid #ddd;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-top: 8px;
+    position: absolute;
+    z-index: 5;
+    width: calc(100% - 20px); /* 부모 요소의 너비에 맞춤 */
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #333;
+}
+
+.suggestion:hover {
+    background-color: #e6f4ff;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.6em;
+    }
+    .note-content {
+        font-size: 1.1em;
+    }
+    .bottom-nav a {
+        font-size: 11px;
+    }
+}
+
+  /* 전체 링크 스타일 */
+.chat-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+/* 컨테이너 스타일 */
+.chat-container {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 가운데 정렬 */
+    position: fixed; /* 화면에 고정 */
+    top: 10px; /* 화면 상단에서 10px 아래 */
+    right: 10px; /* 화면 오른쪽에서 10px 왼쪽 */
+    z-index: 1000; /* 다른 요소 위에 표시되도록 z-index 설정 */
+    background-color: transparent; /* 배경 투명 설정 */
+    transition: transform 0.3s;
+}
+
+/* 아이콘 스타일 */
+.chat-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* 텍스트 스타일 */
+.chat-text {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 호버 효과 */
+.chat-link:hover .chat-container {
+    transform: translateY(-3px); /* 살짝 위로 이동 */
+}

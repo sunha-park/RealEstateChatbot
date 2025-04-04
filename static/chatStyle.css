@@ -1,0 +1,205 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* 채팅 전체 컨테이너 스타일 */
+.chat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 10px;
+}
+
+/* 채팅 그룹 스타일 */
+.chat-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #0c2d82;
+    border-radius: 10px;
+    width: 100%;
+    height: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 채팅 헤더 스타일 */
+.chat-header {
+    background-color: #0c2d82;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+/* 닫기 버튼 스타일 */
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+}
+/* 마우스 오버 상태에서 경계선 없애기 */
+.close-btn:hover,
+.close-btn:active,
+.close-btn:focus {
+    outline: none !important;
+    border: none !important; /* 추가적으로 border도 제거 */
+}
+
+/* 채팅 바디 스타일 */
+.chat-body {
+    width: 100%;
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    margin: 10px;
+    
+}
+.chat-footer {
+    background-color: #0c2d82;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+
+.bot-name {
+    font-weight: bold;
+    color: #0c2d82;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 12px;
+    border-radius: 15px;
+    position: relative;
+    font-size: 14px;
+}
+
+/* 사용자 및 봇 메시지 스타일 */
+.user-bubble {
+    margin-left: auto; /* 화면 우측으로 배치 */
+    margin-top: 10px;
+    color: white;
+    background-color: #0c2d82;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px;
+}
+
+.bot-bubble {
+    background-color: #f0f4ff;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0;
+}
+
+/* 채팅 푸터 스타일 */
+.chat-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* 좌우로 여백 분배 */
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+
+/* 입력 필드 스타일 */
+.input-box {
+    flex:8;
+    margin: 0 !important; /* 모든 여백을 완전히 제거 */
+    margin-right: 10px !important; /* 오른쪽 여백만 설정 */
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-box:focus {
+    border-color: #0c2d82;
+}
+
+/* 전송 버튼 스타일 */
+.send-button {
+    flex: 1;
+    background-color: #0c2d82;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    height: 100%; /* 높이 설정 */
+    padding: 0 15px; /* 내부 여백 조정 */
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.send-button:hover {
+    background-color: #34497d;
+}
+
+.send-button:active {
+    background-color: #283b63;
+}
+
+/* 버튼 컨테이너 스타일 */
+.chat-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+/* 개별 버튼 스타일 */
+.chat-button {
+    background-color: #edf2fa;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.chat-button:hover {
+    background-color: #0c2d82;
+    color: white;
+}
+
+.chat-button:active {
+    background-color: #0c2d82;
+    color: white;
+}
