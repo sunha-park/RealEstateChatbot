@@ -38,48 +38,51 @@
 ## 🖼 서비스 설명
 
 <table>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/001.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/002.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/003.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/004.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/005.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/006.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/007.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/008.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/009.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/010.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/011.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/012.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/013.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/014.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/015.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/016.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/017.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/018.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/019.png" width="500"/></td>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/020.png" width="500"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/021.png" width="500"/></td>
-    <td></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/001.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/002.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/003.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/004.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/005.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/006.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/007.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/008.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/009.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/010.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/011.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/012.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/013.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/014.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/015.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/016.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/017.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/018.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/019.png" width="500"/></td>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/020.png" width="500"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/sunha-park/myimages/blob/main/insurance/021.png" width="500"/></td>
+      <td></td>
+    </tr>
+  </tbody>
 </table>
+
