@@ -26,7 +26,7 @@
     ▼ 영상클릭
     <td>
       <a href="https://www.youtube.com/watch?v=o9qifqO63rU" title="챗봇/LLM/RAG/감정분석/부동산/메모일정관리">
-          <img align="center" src="https://github.com/sunha-park/myimages/blob/main/youtube/20250409_164751.png" width="300" alt-text="챗봇/LLM/RAG/감정분석/부동산/메모일정관리">
+          <img align="center" src="https://github.com/sunha-park/myimages/blob/main/youtube/20250409_164751.png" width="400" alt-text="챗봇/LLM/RAG/감정분석/부동산/메모일정관리">
         </a>
     </td>
   </tr>
